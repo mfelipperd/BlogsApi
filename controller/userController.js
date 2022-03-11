@@ -11,12 +11,11 @@ const jwtConfig = {
     algorithm: 'HS256',
   };
   try {
-    console.log('entrou no try');
   const user = await userService.createUser(dataUser);
       const token = jwt.sign({ data: user }, secret, jwtConfig);
-    return res.status(200).json({ token });
+    return res.status(201).json({ token });
 } catch (error) {
-    console.log(error);
+  console.log('**********************', error.code);
 return res.status(error.code).json({ message: error.message });
 }
 };
