@@ -1,22 +1,13 @@
-const jwt = require('jsonwebtoken');
+const { tokenCreate } = require('../schemas/tokenSchema');
 const loginService = require('../service/loginService');
-
-const secret = 'seusecretdetoken';
 
 const loginUser = async (req, res) => {
 const dataUser = req.body;
-
-const jwtConfig = {
-    expiresIn: '7d',
-    algorithm: 'HS256',
-};
 try {
     const validLogin = await loginService.loginUser(dataUser);
-    console.log(validLogin);
-    const token = jwt.sign({ data: validLogin }, secret, jwtConfig);
+    const token = tokenCreate(validLogin);
     return res.status(200).json({ token });
 } catch (error) {
-console.log('**********************', error);
 return res.status(error.code).json({ message: error.message });
 }
 };
