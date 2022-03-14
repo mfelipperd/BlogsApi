@@ -16,10 +16,16 @@ return res.status(error.code).json({ message: error.message });
 const userList = async (req, res) => {
     const listOfUser = await userService.listUser();
     res.status(200).json(listOfUser);
-  
+};
+
+const getUserById = async (req, res) => {
+  const { id } = req.params;
+  const infos = await userService.getUserById(id);
+  res.status(200).json(infos);
 };
 
 module.exports = {
 createUser,
 userList,
+getUserById,
 };
