@@ -1,5 +1,8 @@
 const { user } = require('../models');
-const { validateDisplayName, validateEmail, validatePassword } = require('../schemas/userSchema');
+const { 
+    validateDisplayName, 
+    validateEmail, validatePassword } = require('../schemas/userSchema');
+const { validateToken } = require('../schemas/tokenSchema');
 
 const createUser = async (userData) => {
     const { displayName, email, password, image } = userData;
@@ -14,6 +17,12 @@ const createUser = async (userData) => {
     return userCreate;
 };
 
+const listUser = async (token) => {
+    const usersList = await user.findAll();
+    return usersList; 
+};
+
 module.exports = {
     createUser,
+    listUser,
 };
