@@ -1,11 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const BlogPosts = sequelize.define(
       'blogPost',
-      { // userId: { type: DataTypes.UUID, foreignKey: true },
-        title: { type: DataTypes.STRING, allowNull: false }, 
-        content: { type: DataTypes.STRING, allowNull: false },
+      {
+        title: { type: DataTypes.STRING }, 
+        content: { type: DataTypes.STRING },
         published: { type: DataTypes.DATE },
         updated: { type: DataTypes.DATE },
+        userId: { type: DataTypes.INTEGER },
       },
       {
         timestamps: false,
