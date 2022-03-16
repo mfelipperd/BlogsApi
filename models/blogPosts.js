@@ -9,15 +9,12 @@ module.exports = (sequelize, DataTypes) => {
         userId: { type: DataTypes.INTEGER },
       },
       {
-        timestamps: false,
-        tableName: 'BlogPosts',
+        timestamps: false, tableName: 'BlogPosts',
       },
     );
-  
     BlogPosts.associate = (models) => {
-      BlogPosts.belongsTo(models.user, { foreignKey: 'userId', as: 'author' });
-      // BlogPosts.hasMany(models.postCategorie, { foreignKey: 'postId', as: 'category' });
+      BlogPosts.belongsTo(models.user, { foreignKey: 'userId', as: 'user' });
     };
-  
+
     return BlogPosts;
   };
