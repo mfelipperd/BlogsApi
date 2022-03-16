@@ -18,6 +18,7 @@ app.get('/user/:id', validateToken, userExists, userController.getUserById);
 app.post('/login', loginController.loginUser);
 app.post('/categories', validateCategorieName, validateToken, categorieController.createCategorie);
 app.get('/categories', validateToken, categorieController.getAllCategories);
+app.get('/post', validateToken, blogPostController.getAllPosts);
 app.post('/post', validateToken, validatePost, categorieExists, blogPostController.blogPostCreate);
 app.listen(3000, () => console.log('ouvindo porta 3000!'));
 // não remova esse endpoint, e para o avaliador funcionar
