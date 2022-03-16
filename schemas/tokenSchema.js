@@ -22,10 +22,10 @@ const validateToken = (req, res, next) => {
 
     try {
     jwt.verify(token, secret);
-    } catch (error) {
+} catch (error) {
     if (error) return res.status(401).json({ message: iMessage });
     }
-    
+
 next();
 };
 
