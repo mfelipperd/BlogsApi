@@ -6,3 +6,4 @@ exports.validateCategorieName = (req, res, next) => {
         return res.status(400).json({ message: NAME_IS_REQUIRED });
     }
     next();
+};
