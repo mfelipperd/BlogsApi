@@ -6,11 +6,6 @@ const createCategorie = async (req, res) => {
     return res.status(201).json(newName);
 };
 
-/* const test = async (req, res) => {
-    const { name } = req.body;
-    const newName = await categorieService.newCategorie(name);
-    res.status(201).json(newName);
-}; */
 const getAllCategories = async (req, res) => {
 const list = await categorie.findAll();
 return res.status(200).json(list);
@@ -19,5 +14,4 @@ return res.status(200).json(list);
 module.exports = {
     createCategorie,
     getAllCategories,
-   // test,
 };

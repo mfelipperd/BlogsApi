@@ -10,7 +10,6 @@ const blogPostCreate = async (data, id) => {
         categoryIds, 
     };
     const createNewPost = await blogPost.create(newData);
-    console.log(createNewPost);
     return createNewPost;
 };
 
@@ -20,10 +19,8 @@ const posts = await blogPost.findAll({
     include: [
         { model: user, as: 'user', attributes: { exclude: ['password'] } },
         { model: categorie, as: 'categories', through: [] }, // li o pull request do Vitor diorio para entender isso 
-    ], // pull do vitor https://github.com/tryber/sd-015-a-project-blogs-api/pull/104/files
-    
+    ], // pull do vitor https://github.com/tryber/sd-015-a-project-blogs-api/pull/104/files  
 });
-console.log(posts);
 return posts;
 };
 
