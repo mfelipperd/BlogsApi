@@ -91,7 +91,8 @@ exports.validatePassword = async (password) => {
 exports.userExists = async (req, res, next) => {
     const { id } = req.params;
     try {
-    await user.findByPk(id);
+    const { user: info } = await user.findByPk(id);
+    console.log(info);
     } catch (error) {
 if (error) return res.status(404).json({ message: 'User does not exist' });
     }
