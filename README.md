@@ -1,2 +1,2 @@
 # BlogsApi
-Pondo em pratica o Sequelize.
+API criada em Node.js ultilizando Sequelize e RestFul.
